@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Jatto Portfolio
+{% endblock %}
+
+{% block profilepix %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <section id='portfolio' class='section portfolio-section remain-col active'>
+
+        <div class='section-block portfolio-block'>
+
+            <div class='container-fluid'>
+
+                <h4 class='pre'>Take a look at my works</h4>
+                <!-- portfolio categories Title goes in here as the filters-->
+                {% if medium %}
+                <ul class='portfolio-filters'>
+                    {% for med in medium %}
+                        <li>
+                            <a data-group='{{ med.name }}' href='#' class="{% if med.name == 'all' %} active {% endif %}">{{ med.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if project %}
+                    <ul class='portfolio-items'>
+                        {% for work in project %}
+                            {% if work.is_public == True %}
+                                <li data-groups='["{{ work.data_group }}"]'>
+                                    <div class='inner'>
+
+                                        <img src='{{ work.project_image.url }}' alt>
+
+                                        <a href='#popup-{{ work.slug }}' class='overlay has-popup'>
+
+                                            <h4>{{ work.name }}</h4>
+
+                                            <p>{{ work.description }}</p>
+
+                                        </a>
+
+                                    </div>
+
+                                    <div id='popup-{{ work.slug }}' class='popup-box zoom-anim-dialog mfp-hide'>
+
+                                        <figure>
+                                            <!--project popup image-->
+                                            <img src='{{ work.project_image.url }}' alt>
+                                        </figure>
+
+                                        <div class='content'>
+                                            <!--project popup title-->
+                                            <h4>{{ work.name }}</h4>
+                                            <!--project popup description-->
+                                            <p>
+                                                {{ work.description }}
+                                            </p>
+
+                                            <a href='{{work.project_url}}' class='view-more'>Visit Site</a>
+
+                                        </div>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>There are no project right now ;(</p>
+                {% endif %}
+            </div>
+
+        </div>
+
+
+    </section>
+{% endblock %}

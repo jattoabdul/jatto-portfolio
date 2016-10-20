@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Contact-Me
+{% endblock %}
+
+{% block profilepix %}
+    <div id="profilePix" class='col-img' style='background-image:url("{% static 'img/person-imgc.jpg' %}")';></div>
+{% endblock %}
+
+{% block content %}
+    <section id='contact' class='section contact-section remain-col active'>
+
+    <div class='section-block contact-block'>
+
+        <div class='container-fluid'>
+
+            <h4 class='pre'>Have a cool project in mind? contact me.</h4>
+
+            <div class='row'>
+
+                <div class='col-sm-4 col-xs-6'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-mail'></i>
+
+                        <p>
+                            email-1@domain.com<br> email-2@gmail.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class='col-sm-4 col-xs-6'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-pin'></i>
+
+                        <p>
+                            The dummy address,<br> for you here
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class='col-sm-4 col-xs-12'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-phone-portrait'></i>
+
+                        <p>
+                            +92 - 91312122,<br> +92 - 01312413
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <form method='post' class='contact-form' id='contact-form' data-toggle='validator'>{% csrf_token %}
+
+                <div class='row'>
+
+                    <div class='col-md-6'>
+
+                        <div class='form-group'>
+                            <input type='text' placeholder='Name' name='name' class='form-control' required>
+                            <div class='help-block with-errors'></div>
+                        </div>
+
+                    </div>
+
+                    <div class='col-md-6'>
+
+                        <div class='form-group'>
+                            <input type='email' placeholder='Email' name='email' class='form-control' required>
+                            <div class='help-block with-errors'></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class='form-group'>
+                    <input type='text' placeholder='Subject' name='subject' class='form-control' maxlength="20" required>
+                    <div class='help-block with-errors'></div>
+                </div>
+
+
+                <div class='form-group'>
+                    <textarea class='form-control' placeholder='Message' rows='5' name='body' required></textarea>
+                    <div class='help-block with-errors'></div>
+                </div>
+
+
+                <div class='form-group'>
+
+                    <button type='submit' value="Submit" class='send-message'>Send Message</button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

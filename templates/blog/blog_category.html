@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Jatto Blog
+{% endblock %}
+
+{% block profilepix %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <section id='blog' class='section blog-section remain-col active'>
+        <div class='section-block blog-block'>
+
+            <div class='container-fluid'>
+
+                <h4 class='pre'>{{ category.title }}</h4>
+
+                {% if posts %}
+                <ul class='blog-posts'>
+                    {% for post in posts %}
+                        <li>
+                        <div class='blog-post'>
+
+                            <figure>
+                                <img src='{% static "img/blog/blog-1.jpg" %}' alt>
+                            </figure>
+
+                            <div class='content'>
+
+                                <h4>{{ post.title }}</h4>
+
+                                <ul class='post-icons'>
+                                    <li>
+                                        <i class='ion-ios-person'></i>
+                                        <span>{{ post.author }}</span>
+                                    </li>
+                                    <li>
+                                        <i class='ion-ios-clock'></i>
+                                        <span>{{ post.date }}</span>
+                                    </li>
+                                    <li>
+                                        <i class='ion-ios-pricetag'></i>
+                                        <span>{{ post.category }}</span>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <p>
+                                {{ post.meta_description }}
+                            </p>
+
+
+                            <a href='{{ post.get_absolute_url }}' class='read-more'>Read More</a>
+
+
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                    <p>There are no posts.</p>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

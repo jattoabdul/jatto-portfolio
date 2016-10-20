@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Home
+{% endblock %}
+{% block profilepix %}
+    <div id="profilePix" class='col-img' style='background-image:url("{% static 'img/person-imgh.jpg' %}")';></div>
+{% endblock %}
+{% block content %}
+    <section id='resume' class='section resume-section remain-col active'>
+
+    <div class='section-block education-block'>
+
+        <div class='container-fluid'>
+
+            <h4 class='pre'>The places where I've studied</h4>
+
+            {% if schools %}
+            <ul class='timeline'>
+                {% for school in schools %}
+                <li>
+                    <div class='row'>
+                        <div class='col-sm-6'>
+                            <strong>{{ school.start_year }} - {{ school.end_year }}</strong>
+                        </div>
+
+                        <div class='col-sm-6'>
+                            <h4>{{ school.name }}</h4>
+                            <span>{{ school.certificate }}</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+            {% else %}
+                <strong>There are no study place present.</strong>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class='section-block experience-block'>
+
+        <div class='container-fluid'>
+
+
+            <h4 class='pre'>The places where I've worked</h4>
+
+            {% if works %}
+            <ul class='timeline'>
+                {% for work in works %}
+                <li>
+                    <div class='row'>
+                        <div class='col-sm-6'>
+                            <strong>{{ work.start_year }} - {{ work.end_year }}</strong>
+                        </div>
+
+                        <div class='col-sm-6'>
+                            <h4>{{ work.name }}</h4>
+                            <span>{{ work.position }}</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+            {% else %}
+                <strong>There are no work place present.</strong>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    <div class='section-block testimonials-block'>
+
+        <div class='container-fluid'>
+
+            <h4 class='pre'>What others say about me</h4>
+
+
+            <div class='testimonials-slider'>
+                {% if feeds %}
+                {% for feed in feeds %}
+                <div class='testimonial'>
+                    <div class='author-img'>
+                        <img src="{% static 'img/person1.jpg' %}" alt>
+                    </div>
+                    <div class='content'>
+
+                        <div class='author-info'>
+                            <strong>{{ feed.client_name }}</strong>
+                            <span>{{ feed.client_position }}@{{ feed.client_company }}</span>
+                        </div>
+
+                        <p>
+
+                            {{ feed.client_feed }}
+
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% else %}
+                <strong>There are no Feeds from clients at present.</strong>
+                {% endif %}
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

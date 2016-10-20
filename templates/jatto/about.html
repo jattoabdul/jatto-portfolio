@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block profilepix %}
+    <div id="profilePix" class='col-img' style='background-image:url("{% static 'img/person-imgb.jpg' %}")';></div>
+{% endblock %}
+
+{% block content %}
+    <section id='about' class='section about-section remain-col active'>
+        <div class='section-block about-block'>
+
+            <div class='container-fluid'>
+
+                <div class='about-text'>
+
+                    <h4 class='pre'>About Me</h4>
+
+                    <h2>
+                        i am {{ name.first_name }} {{ name.last_name }}, <br> {{ name.occupation }}
+                    </h2>
+
+
+                    <p>
+                        {{ name.bio }}
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class='section-block funfacts-block'>
+
+
+            <div class='container-fluid'>
+
+                <h4 class='pre'>The Surprising Facts</h4>
+
+                <div class='row'>
+
+                    <div class='col-sm-4 col-xs-6'>
+
+                        <div class='funfact'>
+
+                            <h2>
+                                018
+                            </h2>
+
+                            <p>Happy Users</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class='col-sm-4 col-xs-6'>
+
+                        <div class='funfact'>
+
+                            <h2>
+                                005
+                            </h2>
+
+                            <p>Awards Won</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class='col-sm-4 col-xs-12'>
+
+                        <div class='funfact'>
+
+                            <h2>
+                                18
+                            </h2>
+
+                            <p>Appreciations</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class='section-block services-block'>
+
+            <div class='container-fluid'>
+
+
+                <h4 class='pre'>Services that I render with my skills</h4>
+
+                {% if skills %}
+                <div class="row">
+                {% for skill in skills %}
+                <div class="col-sm-6">
+                    <div class='service'>
+                        <i class='{{ skill.skill_icon }}'></i>
+
+                        <h4>{{ skill.skill_name }}</h4>
+
+                        <p>
+                            {{ skill.skill_detail }}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+                </div>
+                {% else %}
+                <strong>There are no services present.</strong>
+                {% endif %}
+            </div>
+        </div>
+        <div class='section-block skills-block'>
+
+
+            <div class='container-fluid'>
+
+                <h4 class='pre'>I've got really good skills</h4>
+
+                {% if skills %}
+                {% for skill in skills %}
+                <div class='skill' data-percent='{{ skill.skill_percent }}'>
+
+                    <h4>{{ skill.skill_name }}</h4>
+
+                </div>
+                {% endfor %}
+                {% else %}
+                    <strong>There are no skills percentage present.</strong>
+                {% endif %}
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+

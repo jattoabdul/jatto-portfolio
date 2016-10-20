@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Jatto Blog Comment
+{% endblock %}
+
+{% block profilepix %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <section id='blog-single' class='section blog-section remain-col active' >
+
+        <div class='section-block single-post-block' >
+
+            <div class='container-fluid' >
+                <form class='add-comment' data-toggle='validator' method='POST' >{% csrf_token %}
+
+                    <h4>Write your Comment</h4>
+                    {{ form.as_p }}
+                    <button type="submit" class="save btn btn-default">Send</button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </section>
+{% endblock %}
+
+{% comment %}
+        try to work with my own form later....
+        <form class='add-comment' data-toggle='validator' method='post' >
+
+                    <h4>Write your Comment</h4>
+
+                    <div class='row' >
+
+                        <div class='col-md-6' >
+                            <div class='form-group' >
+                                <input type='text' class='form-control' placeholder='Name' required>
+                                <div class='help-block with-errors' ></div>
+                            </div>
+                        </div>
+
+                        <div class='col-md-6' >
+                            <div class='form-group' >
+                                <input type='email' class='form-control' placeholder='Email' required>
+                                <div class='help-block with-errors' ></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class='form-group' >
+                        <textarea class='form-control' placeholder='Comment' rows='5' required></textarea>
+                        <div class='help-block with-errors' ></div>
+                    </div>
+
+
+                    <div class='form-group' >
+                        <button type='submit' class='submit-btn' >Add Comment</button>
+                    </div>
+
+                </form>
+{% endcomment %}

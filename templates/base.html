@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang='en' class='no-js'>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+    <title>jatto Portfolio Website - {% block title %} Home {% endblock %} </title>
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/bootstrap.min.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/ionicons.min.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/owl.carousel.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/magnific-popup.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+{% block profilepix %}
+    <div id="profilePix" class='col-img' style='background-image:url("{% static 'img/person-img.jpg' %}")';></div>
+{% endblock %}
+
+<div id='main-wrapper'>
+
+    <div id='menu-icon-wrapper' class='menu-icon-wrapper' style='visibility: hidden'>
+        <svg width='1000px' height='1000px'>
+            <path id='pathA' d='M 300 400 L 700 400 C 900 400 900 750 600 850 A 400 400 0 0 1 200 200 L 800 800'></path>
+            <path id='pathB' d='M 300 500 L 700 500'></path>
+            <path id='pathC' d='M 700 600 L 300 600 C 100 600 100 200 400 150 A 400 380 0 1 1 200 800 L 800 200'></path>
+        </svg>
+        <button id='menu-icon-trigger' class='menu-icon-trigger'></button>
+    </div>
+
+    {% include 'nav.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.shuffle.min.js' %}"></script>
+<script src="{% static 'js/segment.min.js' %}"></script>
+<script src="{% static 'js/ease.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/validator.min.js' %}"></script>
+<script src="{% static 'js/fitvids.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>

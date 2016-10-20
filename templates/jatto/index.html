@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block profilepix %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <section id='home' class='section intro-section remain-col active'>
+        <div class='section-block intro-block'>
+
+            <div class='container-fluid'>
+
+                <div class='v-align'>
+
+                    <div class='intro-text'>
+
+                        <h1>{{ name.first_name }}, {{ name.last_name }}</h1>
+
+                        <p>{{ name.occupation }}</p>
+
+                        <a href='/jatto/portfolio/' class='btn-custom section-link'>View Portfolio</a>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class='intro-footer'>
+            <div class='container-fluid'>
+
+                <div class='row'>
+
+                    <div class='col-xs-4'>
+                        <a href='/jatto/contact/' class='hire-me section-link'>Hire Me</a>
+                    </div>
+
+                    <div class='col-xs-8 text-right'>
+
+                        <ul class='footer-social'>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-facebook'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-twitter'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-googleplus'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-pinterest'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-github'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-dribbble'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-linkedin'></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href='#'>
+                                    <i class='ion-social-youtube'></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

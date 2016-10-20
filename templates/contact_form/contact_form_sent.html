@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Thank You
+{% endblock %}
+
+{% block profilepix %}
+    <div id="profilePix" class='col-img' style='background-image:url("{% static 'img/person-imgd.jpg' %}")';></div>
+{% endblock %}
+
+{% block content %}
+    <section id='contact-sent' class='section contact-section remain-col active'>
+
+    <div class='section-block contact-block'>
+
+        <div class='container-fluid'>
+
+            <h4 class='pre'>Have a cool project in mind? contact me.</h4>
+
+            <div class='row'>
+
+                <div class='col-sm-4 col-xs-6'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-mail'></i>
+
+                        <p>
+                            email-1@domain.com<br> email-2@gmail.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class='col-sm-4 col-xs-6'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-pin'></i>
+
+                        <p>
+                            The dummy address,<br> for you here
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class='col-sm-4 col-xs-12'>
+
+                    <div class='contact-info'>
+
+                        <i class='ion-android-phone-portrait'></i>
+
+                        <p>
+                            +92 - 91312122,<br> +92 - 01312413
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <h4 class='pre'> Thank you for reaching out, we appreciate you. </h4>
+
+        <div class='alert alert-success' role='alert'>
+            <strong>Message Sent!</strong> We'll be in touch as soon as possible
+        </div>
+
+    </div>
+
+</section>
+{% endblock %}

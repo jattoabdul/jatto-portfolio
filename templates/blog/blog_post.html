@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    Jatto Blog
+{% endblock %}
+
+{% block profilepix %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <section id='blog-single' class='section blog-section remain-col active' >
+
+				<div class='section-block single-post-block' >
+
+					<div class='container-fluid' >
+
+						<div class='single-post' >
+
+
+							<em>Posted by <a href='#' class='link' >{{ post.author }}</a> on {{ post.created_on }}.</em>
+							<h1>{{ post.title }}</h1>
+
+                            <img class='full-img' src='{% static "img/blog/blog-single2.jpg" %}' alt>
+							<div class='content' >
+
+								<p class='dropcap' >
+                                    {{ post.body | linebreaksbr }}
+								</p>
+
+							</div>
+
+						</div>
+
+                        <div id="comments" class='comments' >
+                            <div class='header' >
+                                <h2>{{ post.comments.count }} Comments <a href="{% url 'add_comment_to_post' slug=post.slug %}" class="pull-right" >add Comments</a></h2>
+                            </div>
+
+                            {% for comment in post.comments.all %}
+
+                                <div class='comment' >
+
+                                <div class='person-img' >
+                                    <img src='{% static "img/person1.jpg" %}' alt>
+                                </div>
+
+                                <div class='content' >
+                                    <h4>{{ comment.author }}</h4>
+                                    <em>{{ comment.created_date }}</em>
+                                    <p>
+                                        {{ comment.text|linebreaks }}
+                                    </p>
+                                </div>
+
+                            </div>
+
+                            {% empty %}
+                                <p>No comments here yet :(</p>
+                            {% endfor %}
+                        </div>
+					</div>
+
+				</div>
+
+			</section>
+{% endblock %}
